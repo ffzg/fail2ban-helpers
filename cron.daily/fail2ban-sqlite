@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sqlite3 /var/lib/fail2ban/fail2ban.sqlite3 "delete from bans where timeofban <= strftime('%s', date('now', '-30 days'));"
+sqlite3 /var/lib/fail2ban/fail2ban.sqlite3 "vacuum;"
+
